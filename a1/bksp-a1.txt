@@ -1,0 +1,65 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2577052734273771311 (0x23c387ced9d6572f)
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: C=RU, O=B4CKSP4CE, CN=B4CKSP4CE Root CA
+        Validity
+            Not Before: Oct 20 00:00:00 2024 GMT
+            Not After : Oct 19 23:59:59 2039 GMT
+        Subject: C=RU, O=B4CKSP4CE, CN=B4CKSP4CE A1
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (384 bit)
+                pub:
+                    04:4e:10:93:36:8b:e7:b2:bb:61:f7:f3:b0:84:76:
+                    74:4c:99:20:a4:34:26:b7:1a:2c:d8:70:60:7d:9d:
+                    4b:c5:59:a9:24:2e:46:7c:95:0c:a2:af:e1:0c:c1:
+                    9b:a9:80:99:af:b7:98:b2:f0:2a:31:cf:8d:87:b4:
+                    d0:69:a4:82:ff:1e:7a:4d:60:a9:e1:af:69:34:e6:
+                    a9:aa:db:a1:ff:e4:e0:30:82:17:21:01:8b:67:5d:
+                    d3:39:4a:f5:8e:72:70
+                ASN1 OID: secp384r1
+                NIST CURVE: P-384
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Subject Key Identifier: 
+                24:36:47:6C:8F:5C:4F:F7:D2:03:5E:C2:32:3D:6E:CC:E4:1B:5E:40
+            X509v3 Authority Key Identifier: 
+                85:E6:C4:50:71:14:E3:3F:B9:CA:F0:34:21:3E:26:7D:77:8D:B8:68
+            X509v3 Key Usage: critical
+                Certificate Sign, CRL Sign
+            X509v3 CRL Distribution Points: critical
+                Full Name:
+                  URI:https://ca.bksp.in/a1/revoke.crl
+            X509v3 Name Constraints: 
+                Permitted:
+                  DNS:.svc.bksp.in
+                  DNS:.svc.0x08.in permitted;IP:10.0.2.0/255.255.254.0
+                  IP:FD91:652E:271A:0:0:0:0:1/FD91:652E:271A:FFFF:FFFF:FFFF:FFFF:FFFF
+    Signature Algorithm: ecdsa-with-SHA256
+    Signature Value:
+        30:64:02:30:30:2e:b9:66:1a:e9:4c:ad:db:1f:58:ab:a4:34:
+        d4:fa:c3:34:9d:df:99:dc:6c:16:ab:e3:13:34:29:e4:3f:ca:
+        8b:f2:27:74:6f:bd:d6:b9:6f:f5:6f:83:2c:58:f2:cd:02:30:
+        44:90:be:ff:7b:a3:4e:46:3a:2f:89:c4:7c:5b:e1:df:58:de:
+        0a:99:74:ac:f6:52:49:24:e6:d0:cd:9c:bf:f9:19:54:00:1d:
+        58:09:5d:76:d3:59:5a:da:4a:8d:0a:22
+-----BEGIN CERTIFICATE-----
+MIICvDCCAkOgAwIBAgIII8OHztnWVy8wCgYIKoZIzj0EAwIwPTELMAkGA1UEBhMC
+UlUxEjAQBgNVBAoTCUI0Q0tTUDRDRTEaMBgGA1UEAxMRQjRDS1NQNENFIFJvb3Qg
+Q0EwHhcNMjQxMDIwMDAwMDAwWhcNMzkxMDE5MjM1OTU5WjA4MQswCQYDVQQGEwJS
+VTESMBAGA1UEChMJQjRDS1NQNENFMRUwEwYDVQQDEwxCNENLU1A0Q0UgQTEwdjAQ
+BgcqhkjOPQIBBgUrgQQAIgNiAAROEJM2i+eyu2H387CEdnRMmSCkNCa3GizYcGB9
+nUvFWakkLkZ8lQyir+EMwZupgJmvt5iy8Coxz42HtNBppIL/HnpNYKnhr2k05qmq
+26H/5OAwghchAYtnXdM5SvWOcnCjggETMIIBDzASBgNVHRMBAf8ECDAGAQH/AgEA
+MB0GA1UdDgQWBBQkNkdsj1xP99IDXsIyPW7M5BteQDAfBgNVHSMEGDAWgBSF5sRQ
+cRTjP7nK8DQhPiZ9d424aDAOBgNVHQ8BAf8EBAMCAQYwNAYDVR0fAQH/BCowKDAm
+oCSgIoYgaHR0cHM6Ly9jYS5ia3NwLmluL2ExL3Jldm9rZS5jcmwwcwYDVR0eBGww
+aqBoMA6CDC5zdmMuYmtzcC5pbjAygjAuc3ZjLjB4MDguaW4gcGVybWl0dGVkO0lQ
+OjEwLjAuMi4wLzI1NS4yNTUuMjU0LjAwIocg/ZFlLicaAAAAAAAAAAAAAf2RZS4n
+Gv////////////8wCgYIKoZIzj0EAwIDZwAwZAIwMC65ZhrpTK3bH1irpDTU+sM0
+nd+Z3GwWq+MTNCnkP8qL8id0b73WuW/1b4MsWPLNAjBEkL7/e6NORjovicR8W+Hf
+WN4KmXSs9lJJJObQzZy/+RlUAB1YCV1201la2kqNCiI=
+-----END CERTIFICATE-----
