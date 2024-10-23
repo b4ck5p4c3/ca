@@ -30,6 +30,14 @@ echo -ne "Security: noc@bksp.in (ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJRwsb2wqvm
 openssl dgst -sha256 -verify root-ca.pub -signature noc-contact-proof.asc -binary -
 ```
 
+## Testing
+
+There are three domains for testing purposes. They are:
+
+- [https://good.test.ca.bksp.in](https://good.test.ca.bksp.in) - Valid certificate and policies.
+- [https://revoked.test.ca.bksp.in](https://revoked.test.ca.bksp.in) - Revoked certificate.
+- [https://badnc.test.ca.bksp.in](https://badnc.test.ca.bksp.in) - Invalid Name Constraints.
+
 ## B4CKSP4CE Root CA
 
 - **Serial Number**: `69C682255E615688`
