@@ -11,7 +11,7 @@ It can be:
 1. Specific domain, e.g. `project.example.com`
 2. Wildcard, e.g. `*.example.com`
 3. IPv4 range defined as a netmask `10.0.2.0/255.255.255.0` or `10.0.2.2/255.255.255.255`.
-4. IPv6 range, e.g. `FD91:652E:271A:0:0:0:0:1/FD91:652E:271A:FFFF:FFFF:FFFF:FFFF:FFFF`
+4. IPv6 range, e.g. `D91:652E:271A:0:0:0:0:0/FD91:652E:271A:FFFF:FFFF:FFFF:FFFF:FFFF`
 
 Let's say I want to set up a CA for internal SIP telephony service:
 

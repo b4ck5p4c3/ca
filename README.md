@@ -20,7 +20,7 @@ Expect all replies to be signed with this key. You may encrypt your message usin
 
 ```sh
 # Extract the public key from the Root CA certificate
-curl -fSsl https://ca.bksp.in/root/bksp-root-ca.pem | openssl x509 -noout -pubkey > root-ca.pub
+curl -fSsl https://ca.bksp.in/root/bksp-root.crt | openssl x509 -noout -pubkey > root-ca.pub
 
 # Download the contact proof signature
 curl -fSsl https://ca.bksp.in/sig/noc-contact-proof.asc > noc-contact-proof.asc
@@ -32,57 +32,58 @@ openssl dgst -sha256 -verify root-ca.pub -signature noc-contact-proof.asc -binar
 
 ## B4CKSP4CE Root CA
 
-- **Serial Number**: `3CA292E6A9833433`
-- **SHA1 Fingerprint**: `B5:C7:87:89:BF:01:58:36:6A:E9:6C:F0:0E:FE:96:66:F2:B9:1B:65`
-- **SHA256 Fingerprint**: `65:37:E8:11:4E:BD:ED:77:D8:89:F8:95:7D:1E:54:AC:CC:E1:CE:26:E3:A0:DF:04:3A:40:D3:A1:D2:AA:6E:35`
-- **Not Before**: 20 October 2024 00:00:00 UTC
-- **Not After**: 19 October 2049 23:59:59 UTC
+- **Serial Number**: `69C682255E615688`
+- **SHA1 Fingerprint**: `D8:17:C6:A5:5F:BA:C7:B6:02:59:C5:77:B6:64:58:2E:BC:66:F2:F3`
+- **SHA256 Fingerprint**: `77:F3:4B:65:07:1D:2B:14:97:ED:63:A6:14:C6:98:43:2D:48:BD:31:9E:30:96:50:D6:BA:0A:15:1B:CB:AB:7D`
+- **Not Before**: 22 October 2024 00:00:00 UTC
+- **Not After**: 11 October 2049 23:59:59 UTC
 - **Revocation List**: [CRL](./root/revoke.crl)
-- **Certificate**: [PEM](./root/bksp-root-ca.pem), [TXT](./root/bksp-root-ca.txt)
+- **Certificate**: [PEM](./root/bksp-root.crt), [TXT](./root/bksp-root.txt)
 
 ### B4CKSP4CE A1
 
-Intermediate CA for infrastructure Services.
+Internal Devices CA.
 
-- **Serial Number**: `16632377EC648A4F`
-- **SHA1 Fingerprint**: `65:DC:74:93:74:96:53:A8:C9:47:C2:70:2B:E0:56:05:0C:C3:FE:92`
-- **SHA256 Fingerprint**: `B9:DE:36:A8:8E:6A:AF:32:BD:C3:81:91:ED:65:0C:FF:D3:6A:43:88:70:FE:2F:6C:D5:4F:2C:62:32:54:6F:E5`
-- **Not Before**: 20 October 2024 00:00:00 UTC
-- **Not After**: 19 October 2039 23:59:59 UTC
+- **Serial Number**: `4EAA10FC2ED128C4`
+- **SHA1 Fingerprint**: `5A:53:50:37:8D:89:1A:BF:5E:7B:51:56:03:E1:15:6B:13:16:BF:73`
+- **SHA256 Fingerprint**: `CF:75:F1:09:4F:47:CE:45:BE:5F:5A:FF:F8:56:13:DF:FA:D6:E3:AF:E9:FF:D6:F0:FE:F9:F1:47:FF:DB:34:DD`
+- **Not Before**: 23 October 2024 00:00:00 UTC
+- **Not After**: 12 October 2039 23:59:59 UTC
 - **Revocation List**: [CRL](./a1/revoke.crl)
-- **Certificate**: [PEM](./a1/bksp-a1.pem), [TXT](./a1/bksp-a1.txt)
-- **Name Constraints**:
-  - **DNS**: `.svc.bksp.in`
-  - **DNS**: `.svc.0x08.in`
-  - **IP**: `10.0.2.0/23`
-  - **IP**: `FD91:652E:271A::/48`
-
-### B4CKSP4CE A2
-
-Intermediate CA for internal Devices.
-
-- **Serial Number**: `781257F3BBF281E2`
-- **SHA1 Fingerprint**: `D2:FA:5A:34:65:FF:DE:65:DE:28:BF:99:76:EE:2C:64:3F:50:4A:6F`
-- **SHA256 Fingerprint**: `89:5D:98:C6:C0:2F:BA:0A:1E:9C:00:DF:8B:EE:E5:B8:42:08:43:C8:0A:F5:2C:AF:AE:22:AC:5B:C8:36:37:CB`
-- **Not Before**: 22 October 2024 00:00:00 UTC
-- **Not After**: 21 October 2039 23:59:59 UTC
-- **Revocation List**: [CRL](./a2/revoke.crl)
-- **Certificate**: [PEM](./a2/bksp-a2.pem), [TXT](./a2/bksp-a2.txt)
+- **Certificate**: [PEM](./a1/bksp-a1.crt), [TXT](./a1/bksp-a1.txt)
 - **Name Constraints**:
   - **DNS**: `.int.bksp.in`
   - **IP**: `10.0.2.0/23`
   - **IP**: `FD91:652E:271A::/48`
 
+### B4CKSP4CE A2
+
+Internal Services CA.
+
+- **Serial Number**: `69379D58AF837B49`
+- **SHA1 Fingerprint**: `AB:E1:7F:97:40:11:9D:D5:5C:3C:7C:BF:44:B6:63:D4:1C:F4:24:F6`
+- **SHA256 Fingerprint**: `44:AA:93:25:75:D7:06:78:66:26:6C:D2:47:20:51:CB:BF:AB:EE:1C:49:00:06:0C:86:45:4D:D6:02:64:69:F4`
+- **Not Before**: 23 October 2024 00:00:00 UTC
+- **Not After**: 22 October 2039 23:59:59 UTC
+- **Revocation List**: [CRL](./a2/revoke.crl)
+- **Certificate**: [PEM](./a2/bksp-a2.crt), [TXT](./a2/bksp-a2.txt)
+- **Name Constraints**:
+  - **DNS**: `.svc.bksp.in`
+  - **IP**: `10.0.2.0/23`
+  - **IP**: `FD91:652E:271A::/48`
+
 ### B4CKSP4CE M1
 
-Intermediate CA for Testing.
+Testing CA.
 
-- **Serial Number**: `37172756DF4C9AA8`
-- **SHA1 Fingerprint**: `76:82:86:66:8D:9F:F3:B1:97:1D:15:2E:BB:55:7E:2E:06:65:DE:40`
-- **SHA256 Fingerprint**: `A4:38:55:F3:52:D2:52:D5:CE:BC:7F:E2:C7:99:33:E4:8B:CA:50:C8:B0:FC:42:16:B3:B0:95:B3:5E:10:72:50`
-- **Not Before**: 22 October 2024 00:00:00 UTC
-- **Not After**: 21 October 2039 23:59:59 UTC
+- **Serial Number**: `1CAA7CAA29BD87DA`
+- **SHA1 Fingerprint**: `8D:62:E6:0F:87:79:F9:47:B4:0C:71:B4:19:65:9D:14:3B:99:BC:D0`
+- **SHA256 Fingerprint**: `CF:C5:4A:39:5A:10:9F:F5:12:36:0D:20:76:2A:9D:59:C6:DE:ED:11:1A:8F:99:A1:8C:97:66:F9:C4:7D:9B:DA`
+- **Not Before**: 23 October 2024 00:00:00 UTC
+- **Not After**: 23 October 2039 23:59:59 UTC
 - **Revocation List**: [CRL](./m1/revoke.crl)
-- **Certificate**: [PEM](./m1/bksp-m1.pem), [TXT](./m1/bksp-m1.txt)
+- **Certificate**: [PEM](./m1/bksp-m1.crt), [TXT](./m1/bksp-m1.txt)
 - **Name Constraints**:
+  - **DNS**: `test.ca.bksp.in`
   - **DNS**: `.test.ca.bksp.in`
+  - **DNS Prohibited**: `badnc.test.ca.bksp.in`
