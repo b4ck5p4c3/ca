@@ -1,6 +1,22 @@
+# B4CKSP4CE Certification Authority
+
 This is the B4CKSP4CE internal Certificate Authority. It is used to sign certificates for internal services and infrastructure.
 
-## Policies
+## Installation
+
+```sh
+# Create a directory within ca-certificates, then download the root certificate
+sudo mkdir -p /usr/share/ca-certificates/bksp
+curl -fSsl https://ca.bksp.in/root/bksp-root.crt | sudo tee /usr/share/ca-certificates/bksp/B4CKSP4CE_Root_CA.crt
+
+# Create a symbolic link in system trust store, then add the entry for ca-certificates configuration
+echo "bksp/B4CKSP4CE_Root_CA.crt" | sudo tee -a /etc/ca-certificates.conf
+
+# Update the system trust store
+sudo update-ca-certificates
+```
+
+## Rules of Engagement
 
 1. Don't trust this CA. Just don't.
 2. Wherever you need it, enable this CA only for your particular application. Never install it to system trust stores.
@@ -9,9 +25,10 @@ This is the B4CKSP4CE internal Certificate Authority. It is used to sign certifi
 
 ## Overview
 
-1. Root CA is stored on HSM in RØ team possession.
-2. Root CA is backed up on two encrypted offline devices, one offsite and one onsite.
-3. Backup key is divided into 5 shares using Shamir's Secret Sharing Scheme. Each share holded by a different resident.
+- Root CA is stored on HSM in RØ team possession.
+- Root CA is backed up on two encrypted offline devices, one offsite and one onsite.
+- Backup key is divided into 5 shares using Shamir's Secret Sharing Scheme. Each share holded by a different resident.
+- More stuff is available in [Guides](./guides/) section.
 
 ## Security Contact
 
@@ -30,21 +47,13 @@ echo -ne "Security: noc@bksp.in (ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJRwsb2wqvm
 openssl dgst -sha256 -verify root-ca.pub -signature noc-contact-proof.asc -binary -
 ```
 
-## Testing
-
-There are three domains for testing purposes. They are:
-
-- [https://good.test.ca.bksp.in](https://good.test.ca.bksp.in) - Valid certificate and policies.
-- [https://revoked.test.ca.bksp.in](https://revoked.test.ca.bksp.in) - Revoked certificate.
-- [https://badnc.test.ca.bksp.in](https://badnc.test.ca.bksp.in) - Invalid Name Constraints.
-
 ## B4CKSP4CE Root CA
 
-- **Serial Number**: `69C682255E615688`
-- **SHA1 Fingerprint**: `D8:17:C6:A5:5F:BA:C7:B6:02:59:C5:77:B6:64:58:2E:BC:66:F2:F3`
-- **SHA256 Fingerprint**: `77:F3:4B:65:07:1D:2B:14:97:ED:63:A6:14:C6:98:43:2D:48:BD:31:9E:30:96:50:D6:BA:0A:15:1B:CB:AB:7D`
-- **Not Before**: 22 October 2024 00:00:00 UTC
-- **Not After**: 11 October 2049 23:59:59 UTC
+- **Serial Number**: `7B2F15A7C459B07D`
+- **SHA1 Fingerprint**: `C0:B8:B4:37:E5:58:C2:33:95:9E:2D:A7:61:43:A5:67:FE:51:A3:C4`
+- **SHA256 Fingerprint**: `1A:9F:4B:A1:BC:B5:F5:06:5D:54:57:3C:DA:CE:B6:B9:8C:63:F1:C5:7F:76:C2:09:A5:B3:9D:58:7E:08:B4:AF`
+- **Not Before**: 15 November 2024 00:00:00 UTC
+- **Not After**: 15 November 2049 23:59:59 UTC
 - **Revocation List**: [CRL](./root/revoke.crl)
 - **Certificate**: [PEM](./root/bksp-root.crt), [TXT](./root/bksp-root.txt)
 
@@ -52,46 +61,26 @@ There are three domains for testing purposes. They are:
 
 Internal Devices CA.
 
-- **Serial Number**: `4EAA10FC2ED128C4`
-- **SHA1 Fingerprint**: `5A:53:50:37:8D:89:1A:BF:5E:7B:51:56:03:E1:15:6B:13:16:BF:73`
-- **SHA256 Fingerprint**: `CF:75:F1:09:4F:47:CE:45:BE:5F:5A:FF:F8:56:13:DF:FA:D6:E3:AF:E9:FF:D6:F0:FE:F9:F1:47:FF:DB:34:DD`
-- **Not Before**: 23 October 2024 00:00:00 UTC
-- **Not After**: 12 October 2039 23:59:59 UTC
+- **Serial Number**: `34A52889EFA022F8`
+- **SHA1 Fingerprint**: `9D:89:CD:93:C2:50:90:55:C3:E5:9C:B5:5D:7E:CC:7D:7E:4C:71:BB`
+- **SHA256 Fingerprint**: `F0:88:CF:C8:8D:E0:89:55:D2:83:17:A2:D5:B4:E1:68:37:EC:33:FA:B7:F3:3A:0D:AA:6F:96:DD:DE:DD:1D:6F`
+- **Not Before**: 15 November 2024 00:00:00 UTC
+- **Not After**: 15 November 2039 23:59:59 UTC
 - **Revocation List**: [CRL](./a1/revoke.crl)
 - **Certificate**: [PEM](./a1/bksp-a1.crt), [TXT](./a1/bksp-a1.txt)
 - **Name Constraints**:
   - **DNS**: `.int.bksp.in`
-  - **IP**: `10.0.2.0/23`
-  - **IP**: `FD91:652E:271A::/48`
 
 ### B4CKSP4CE A2
 
 Internal Services CA.
 
-- **Serial Number**: `69379D58AF837B49`
-- **SHA1 Fingerprint**: `AB:E1:7F:97:40:11:9D:D5:5C:3C:7C:BF:44:B6:63:D4:1C:F4:24:F6`
-- **SHA256 Fingerprint**: `44:AA:93:25:75:D7:06:78:66:26:6C:D2:47:20:51:CB:BF:AB:EE:1C:49:00:06:0C:86:45:4D:D6:02:64:69:F4`
-- **Not Before**: 23 October 2024 00:00:00 UTC
-- **Not After**: 22 October 2039 23:59:59 UTC
+- **Serial Number**: `6B47B45F6DB6EC8D`
+- **SHA1 Fingerprint**: `4B:79:3F:B4:A0:C4:84:3E:9A:69:49:B1:E1:2C:55:D1:17:2D:A4:F2`
+- **SHA256 Fingerprint**: `87:2B:BF:D9:5D:9B:B9:12:16:8A:DF:B9:E4:0B:81:32:08:39:96:42:11:A5:9E:60:0C:91:95:FD:91:FE:A5:3B`
+- **Not Before**: 15 November 2024 00:00:00 UTC
+- **Not After**: 15 November 2039 23:59:59 UTC
 - **Revocation List**: [CRL](./a2/revoke.crl)
 - **Certificate**: [PEM](./a2/bksp-a2.crt), [TXT](./a2/bksp-a2.txt)
 - **Name Constraints**:
   - **DNS**: `.svc.bksp.in`
-  - **IP**: `10.0.2.0/23`
-  - **IP**: `FD91:652E:271A::/48`
-
-### B4CKSP4CE M1
-
-Testing CA.
-
-- **Serial Number**: `1CAA7CAA29BD87DA`
-- **SHA1 Fingerprint**: `8D:62:E6:0F:87:79:F9:47:B4:0C:71:B4:19:65:9D:14:3B:99:BC:D0`
-- **SHA256 Fingerprint**: `CF:C5:4A:39:5A:10:9F:F5:12:36:0D:20:76:2A:9D:59:C6:DE:ED:11:1A:8F:99:A1:8C:97:66:F9:C4:7D:9B:DA`
-- **Not Before**: 23 October 2024 00:00:00 UTC
-- **Not After**: 23 October 2039 23:59:59 UTC
-- **Revocation List**: [CRL](./m1/revoke.crl)
-- **Certificate**: [PEM](./m1/bksp-m1.crt), [TXT](./m1/bksp-m1.txt)
-- **Name Constraints**:
-  - **DNS**: `test.ca.bksp.in`
-  - **DNS**: `.test.ca.bksp.in`
-  - **DNS Prohibited**: `badnc.test.ca.bksp.in`

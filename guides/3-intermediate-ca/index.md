@@ -10,25 +10,20 @@ It can be:
 
 1. Specific domain, e.g. `project.example.com`
 2. Wildcard, e.g. `*.example.com`
-3. IPv4 range defined as a netmask `10.0.2.0/255.255.255.0` or `10.0.2.2/255.255.255.255`.
-4. IPv6 range, e.g. `D91:652E:271A:0:0:0:0:0/FD91:652E:271A:FFFF:FFFF:FFFF:FFFF:FFFF`
 
 Let's say I want to set up a CA for internal SIP telephony service:
 
 1. Devices in `*.sip.bksp.in` domain.
-2. Devices IPs in `10.133.7.0/24` subnet.
-3. SIP server at `sip.bksp.in` and `sip.bksp.dn42`.
 
 So the Name Constraints for the new CA will be:
 
 1. `permitted;DNS:.sip.bksp.in`
-2. `permitted;IP:10.133.7.0/255.255.255.0`
-3. `permitted;DNS:sip.bksp.dn42`
+2. `permitted;DNS:sip.bksp.dn42`
 
 Resulting in the following `nameConstraints` attribute:
 
-```
-nameConstraints=permitted;DNS:.sip.bksp.in, permitted;IP:10.133.7.0/255.255.255.0, permitted;DNS:sip.bksp.dn42
+```plaintext
+nameConstraints=permitted;DNS:.sip.bksp.in, permitted;DNS:sip.bksp.dn42
 ```
 
 ## Creating a new Intermediate CA
@@ -60,6 +55,6 @@ nameConstraints=permitted;DNS:.sip.bksp.in, permitted;IP:10.133.7.0/255.255.255.
 3. Sign an initial CRL using XCA's `Revocation List` tab. Set time range to 1 year, click on `Apply`.
 4. Export PEM-coded CRL to the `public/s1/revoke.crl` file.
 5. In the `public/s1` directory, run `openssl x509 -text -in bksp-s1.pem > bksp-s1.txt` to create a human-readable certificate dump.
-6. Add a new entry to the `public/index.md` Intermediate CAs list.
+6. Add a new entry to the `README.md` Intermediate CAs list.
 7. Ensure that your Git configuration includes your valid name, email, and trusted signing key.
 8. Commit and push changes to the repository.
