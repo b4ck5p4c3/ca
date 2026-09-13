@@ -19,9 +19,9 @@ sudo update-ca-certificates
 ## Rules of Engagement
 
 1. Don't trust this CA. Just don't.
-2. Wherever you need it, enable this CA only for your particular application. Never install it to system trust stores.
-3. This CA uses a secp384r1 ECDSA with SHA256 defaults. RSA-3072 is also supported for selected intermediates.
-4. Every intermediate CA have strict restricted-first Name Constraints.
+2. Prefer enabling this CA only for your particular application.
+3. Never heckin' ever trust this CA on your personal devices.
+4. Every Intermediate CA should be restricted using Name Constraints.
 
 ## Overview
 
