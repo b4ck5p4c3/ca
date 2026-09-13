@@ -1,0 +1,53 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1146057492735734532 (0xfe79d37b2b03304)
+        Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=RU, O=B4CKSP4CE, CN=B4CKSP4CE Root CA
+        Validity
+            Not Before: Sep 13 00:00:00 2026 GMT
+            Not After : Sep 12 23:59:59 2028 GMT
+        Subject: C=RU, O=B4CKSP4CE, CN=B4CKSP4CE X1
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (384 bit)
+                pub:
+                    04:1e:d7:7e:09:b1:b7:4f:80:49:c4:28:09:9a:5c:
+                    e1:1c:45:4a:26:40:9a:ca:a5:40:a6:c9:e9:8f:4f:
+                    b9:99:81:68:42:b0:25:d9:a5:03:8d:66:52:5e:e9:
+                    7e:6a:72:37:6e:3d:16:59:48:f3:67:fb:89:81:08:
+                    8d:27:14:64:31:5a:d5:6c:0c:ad:13:4f:6b:bb:d8:
+                    16:94:61:3a:0d:24:df:83:03:2e:d7:53:57:bf:7b:
+                    0e:85:c7:4e:8f:4d:54
+                ASN1 OID: secp384r1
+                NIST CURVE: P-384
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Subject Key Identifier: 
+                0F:CC:90:E0:44:3B:42:16:CF:94:85:5B:AC:8E:30:F9:DD:86:0F:F0
+            X509v3 Authority Key Identifier: 
+                CE:3D:52:C0:89:4F:57:62:DE:6B:1D:A3:C7:4C:AD:E7:56:13:58:E5
+            X509v3 Key Usage: critical
+                Digital Signature, Certificate Sign, CRL Sign
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Name Constraints: 
+                Permitted:
+                  DNS:.int.bksp.in
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://ca.bksp.in/x1/revoke.crl
+
+            Authority Information Access: 
+                CA Issuers - URI:http://ca.bksp.in/root/bksp-root.pem
+            X509v3 Certificate Policies: 
+                Policy: 2.23.140.1.2.1
+    Signature Algorithm: ecdsa-with-SHA384
+    Signature Value:
+        30:65:02:30:01:bf:bb:0f:72:26:73:bc:2a:6a:5b:6b:ce:55:
+        a7:da:2b:8a:dd:9d:80:00:4b:c5:f8:e8:6d:cf:61:be:5e:61:
+        b0:18:e4:f3:c6:78:47:54:53:0c:ed:f4:93:08:26:66:02:31:
+        00:94:22:8b:e7:d7:e6:31:33:68:0c:97:f0:7b:78:56:dd:df:
+        51:15:85:80:98:f5:18:d0:6b:b6:a9:b3:7a:ab:f7:15:ef:a2:
+        b8:12:1a:b6:12:35:5b:bb:2a:4a:75:ea:f0
