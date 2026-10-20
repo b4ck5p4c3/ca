@@ -85,10 +85,14 @@ Internal Services CA.
 - **Name Constraints**:
   - **DNS**: `.svc.bksp.in`
 
+## Revoked Certificates
+
 ### B4CKSP4CE X1
 
 Intermediate CA for ACME issuer for Internal Devices.
 
+- **Reason for Revocation**: Cessation of Operation
+- **Revocation Date**: Oct 20 21:15:46 2026 UTC
 - **Serial Number**: `0FE79D37B2B03304`
 - **SHA1 Fingerprint**: `FD:C3:C0:11:10:D2:2B:3F:EF:8B:5D:29:2A:9D:39:23:22:B0:7F:5A`
 - **SHA256 Fingerprint**: `B7:C1:CB:5B:A4:97:92:C1:26:C3:9D:40:D2:AF:CB:41:96:A2:2C:33:5D:A6:87:EC:66:0B:BD:AA:67:03:A2:3C`
